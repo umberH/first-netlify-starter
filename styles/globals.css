@@ -1,9 +1,11 @@
 html,
 body {
+  display: flex;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
-    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: #343f4f;
 }
 
 * {
@@ -28,8 +30,67 @@ code {
 
 .container {
   height: 100vh;
-  display: flex;
+
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  display: inline-flex;
+}
+
+.wrapper {
+  display: inline-flex;
+}
+
+.container .static-txt {
+  color: #fff;
+
+  font-size: 60px;
+  font-weight: 400;
+}
+
+.container .dynamic-txts {
+  margin-left: 0px;
+  height: 90px;
+  line-height: 90px;
+  /* background: red; */
+  overflow: hidden;
+}
+
+.dynamic-txts li {
+  color: #fc6d6d;
+
+  list-style: none;
+  font-size: 60px;
+  font-weight: 500;
+  position: relative;
+  top: 0;
+
+  animation: slide 12s steps(4) infinite;
+}
+@keyframes slide {
+  100% {
+    top: -360px;
+  }
+}
+
+.dynamic-txts li span {
+  position: relative;
+  margin: 5px 0;
+  line-height: 90px;
+}
+.dynamic-txts li span::after {
+  content: "";
+  left: 0;
+
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-left: 2px solid #fc6d6d;
+  animation: typing 1.5s steps(10) infinite;
+}
+@keyframes typing {
+  100% {
+    left: 100%;
+    margin: 0px -35px 0px 35px;
+  }
 }
